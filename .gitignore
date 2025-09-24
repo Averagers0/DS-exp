@@ -3,12 +3,16 @@
 *.code-workspace
 
 # 构建目录
+DS-build/
+!DS-build/.gitkeep
+
 msvc_build/
 build/
 dist/
 out/
 bin/
 obj/
+
 
 # 系统文件
 .DS_Store
