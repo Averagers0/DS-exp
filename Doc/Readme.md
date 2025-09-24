@@ -21,7 +21,7 @@ windows MSVC环境：
             "args": [
                 "/EHsc",
                 "/Zi",
-                "/Fe:${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
+                "/Fe:${workspaceFolder}\\msvc_build\\${fileBasenameNoExtension}.exe",
 
                 // 当前文件
                 "${file}",
@@ -29,7 +29,7 @@ windows MSVC环境：
                 // DataStructure 下的所有 cpp
                 "${workspaceFolder}\\DataStructure\\src\\*.cpp",
 
-                // exp 下的所有 cpp
+                // experiment 下的所有 cpp
                 "${workspaceFolder}\\experiment\\src\\*.cpp",
 
                 // 包含头文件的目录
@@ -61,7 +61,7 @@ windows MSVC环境：
             "name": "运行当前 example (Windows)",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
+            "program": "${workspaceFolder}\\msvc_build\\${fileBasenameNoExtension}.exe",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
