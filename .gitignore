@@ -3,6 +3,7 @@
 *.code-workspace
 
 # 构建目录
+msvc_build/
 build/
 dist/
 out/
