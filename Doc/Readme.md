@@ -109,8 +109,10 @@
 确认MSVC在环境变量里面
 
 ### step2
-在本项目根目录下
-创建一个.vscode的文件夹
+- 在本项目的根目录下创造一个msvc_build文件夹
+
+- 在本项目根目录下
+创建一个.vscode的文件夹，在其文件夹下
 然后新建两个文件
 
 1.tasks.json
@@ -119,7 +121,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "编译整个项目1",
+            "label": "build DataStructure",
             "type": "shell",
             "command": "cl",
             "args": [
@@ -133,12 +135,35 @@
                 // DataStructure 下的所有 cpp
                 "${workspaceFolder}\\DataStructure\\src\\*.cpp",
 
+                // 包含头文件的目录
+                "/I",
+                "${workspaceFolder}\\DataStructure\\include",
+            ],
+            "options": {
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": ["/c"]
+                }
+            },
+            "problemMatcher": ["$msCompile"],
+            "group": { "kind": "build", "isDefault": true }
+        },
+        {
+            "label": "build exp",
+            "type": "shell",
+            "command": "cl",
+            "args": [
+                "/EHsc",
+                "/Zi",
+                "/Fe:${workspaceFolder}\\msvc_build\\${fileBasenameNoExtension}.exe",
+
+                // 当前文件
+                "${file}",
+
                 // experiment 下的所有 cpp
                 "${workspaceFolder}\\experiment\\src\\*.cpp",
 
                 // 包含头文件的目录
-                "/I",
-                "${workspaceFolder}\\DataStructure\\include",
                 "/I",
                 "${workspaceFolder}\\experiment\\include"
             ],
@@ -162,19 +187,33 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "运行当前 example (Windows)",
+            "name": "运行当前 DataStructure (Windows)",
             "type": "cppvsdbg",
             "request": "launch",
             "program": "${workspaceFolder}\\msvc_build\\${fileBasenameNoExtension}.exe",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
-            "preLaunchTask": "编译整个项目1"
+            "preLaunchTask": "build DataStructure"
+        },
+        {
+            "name": "运行当前 experiment (Windows)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\msvc_build\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "preLaunchTask": "build exp"
         }
     ]
 }
 ```
 
 ### step 3
-运行，选择对应的项目
+- 点击example(DataStructure或者experiment)里面的某个cpp文件
+- 右上角运行按钮
+- 选择我们定义的任务
+  - experiment文件的cpp就是build exp
+  - DataStructure文件下的就是build DataStructure
 
