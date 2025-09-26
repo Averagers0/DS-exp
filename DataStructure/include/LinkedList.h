@@ -1,18 +1,24 @@
-#ifndef LINKED_LIST_H
-#define LINKED_LIST_H
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
 
-//单链表实现
+class ListNode {
+public:
+    int value;
+    ListNode* next;
+    ListNode(int val);
+};
+
 class LinkedList {
 public:
+    ListNode* head;
+
     LinkedList();
-    void insert(int val);
-    void print();
-private:
-    struct Node {
-        int data;
-        Node* next;
-    };
-    Node* head;
+    ~LinkedList();
+
+    void insertSorted(int value); // 有序插入
+    void erase(int value);        // 删除指定值
+    void print() const;           // 打印链表
+    int search(int value) const;  // 查找值位置
 };
 
 #endif
