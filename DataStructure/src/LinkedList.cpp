@@ -15,7 +15,7 @@ void LinkedList::insert(int val) {
 void LinkedList::print() {
     Node* curr = head;
     while (curr) {
-        cout << curr->data << " ";
+        cout << curr->data << endl;
         curr = curr->next;
     }
     cout << endl;

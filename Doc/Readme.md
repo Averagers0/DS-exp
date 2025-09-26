@@ -1,14 +1,18 @@
 # 环境说明
 
-
 ## MinGW环境
 ### step1
 确认MinGW在环境变量里面
 
 ### step2
+在本项目的DataStructure下创建一个DS-build文件夹
+
+在本项目的experiment目录下创建一个exp-build文件夹
+
 在本项目根目录下
 创建一个.vscode的文件夹
 然后新建两个文件
+
 
 1.tasks.json
 ```json
@@ -41,11 +45,10 @@
             "args": [
                 "-std=c++17",
                 "-g",
-                "${workspaceFolder}/experiment/src/*.cpp",
                 "${file}",
                 "-I${workspaceFolder}/experiment/include",
                 "-o",
-                "${workspaceFolder}/experiment/example/output/${fileBasenameNoExtension}.exe"
+                "${workspaceFolder}/experiment/exp-build/${fileBasenameNoExtension}.exe"
             ],
             "group": "build",
             "problemMatcher": [
@@ -80,7 +83,7 @@
             "name": "调试 exp",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/experiment/example/output/${fileBasenameNoExtension}.exe",
+            "program": "${workspaceFolder}/experiment/exp-build/${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/experiment",
@@ -94,7 +97,7 @@
 ```
 
 
-### windows MSVC环境：
+### windows MSVC环境（目前不对，先别配置）：
 ### step1
 确认MSVC在环境变量里面
 

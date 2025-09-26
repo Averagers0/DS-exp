@@ -4,6 +4,8 @@
 
 # 构建目录
 DS-build/
+exp-build/
+!exp-build/.gitkeep
 !DS-build/.gitkeep
 
 msvc_build/
