@@ -96,8 +96,15 @@
 }
 ```
 
+### step3
+- 点击example里面的某个cpp文件
+- 右上角运行按钮
+- 选择我们定义的任务
+  - experiment文件的cpp就是build exp
 
-### windows MSVC环境（目前不对，先别配置）：
+  - DataStructure文件下的就是build DataStructure
+
+## windows MSVC环境（目前不对，先别配置）：
 ### step1
 确认MSVC在环境变量里面
 
